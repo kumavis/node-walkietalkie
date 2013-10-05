@@ -5,7 +5,7 @@ var maxogden = new WalkieTalkie({ channel: 'voxeljs' })
 var harrison = new WalkieTalkie({ channel: 'voxeljs' })
 
 maxogden.on('hello',function() {
-  throw 'maxogden heard himself'
+  throw 'ERR - maxogden heard himself'
 })
 
 harrison.on('hello',function() {
@@ -14,8 +14,6 @@ harrison.on('hello',function() {
 
 console.log('maxogden says hello')
 maxogden.emit('hello')
-
-// -----
 
 console.log('kumavis joins #voxel.js')
 var kumavis = new WalkieTalkie({ channel: 'voxeljs' })
@@ -29,46 +27,55 @@ harrison.on('heyo',function() {
 })
 
 kumavis.on('heyo',function() {
-  throw 'kumavis heard himself'
+  throw 'ERR - kumavis heard himself'
 })
 
 console.log('kumavis says heyo')
 kumavis.emit('heyo')
 
 // ------
+console.log(' --- ')
+// ------
 
+console.log( 'a secret society hidden among the masses' )
 var theMasses = []
 var secretSociety = []
 
 theMasses.push(new WalkieTalkie({ channel: 'public' }))
 theMasses.push(new WalkieTalkie({ channel: 'public' }))
 theMasses.push(new WalkieTalkie({ channel: 'public' }))
+theMasses.push(new WalkieTalkie({ channel: 'public' }))
+theMasses.push(new WalkieTalkie({ channel: 'public' }))
 
-secretSociety.push(new WalkieTalkie({ channel: 'secret' }))
-secretSociety.push(new WalkieTalkie({ channel: 'secret' }))
+secretSociety.push(new WalkieTalkie({ channel: 'private' }))
+secretSociety.push(new WalkieTalkie({ channel: 'private' }))
 
 secretSociety.map(function(subscriber) {
-  subscriber.on('secret',function() {
-    console.log('secretSociety member heard the secret')
+  subscriber.on('conspiracy',function() {
+    console.log('secretSociety member heard the conspiracy')
   })
 })
 
 theMasses.map(function(subscriber) {
-  subscriber.on('secret',function() {
-    throw 'theMasses heard the secret'
+  subscriber.on('conspiracy',function() {
+    throw 'ERR - theMasses heard the conspiracy'
   })
 })
 
-secretSociety[0].emit('secret')
+console.log( 'the secret society discusses the conspiracy' )
+secretSociety[0].emit('conspiracy')
 
 // ------
+console.log(' --- ')
+// ------
 
+console.log('a channel surfer watches tv, dodging commercials')
 var television = nTimes(6,function(index){ return new WalkieTalkie({ channel: index }) })
 var channelSurfer = new WalkieTalkie()
 
 channelSurfer.on('commercial',function() {
   var currentChannel = channelSurfer.channels[0]
-  throw 'surfer saw commercial')
+  throw 'ERR - surfer saw commercial'
 })
 channelSurfer.on('show',function() {
   var currentChannel = channelSurfer.channels[0]
