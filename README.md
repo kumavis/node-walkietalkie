@@ -1,12 +1,13 @@
 # WalkieTalkie
 
 ### About
-Create a bunch of 'walkie-talkies'
-that can talk on and listen to different channels
+For managining 2-way communication between multiple autonomous entities
+
+Create a channel,
+then a bunch of 'walkie-talkies',
+then send and receive events over them!
 
 each walkie-talkie acts like a [duplex-emitter](https://github.com/pgte/duplex-emitter)
-
-For managining 2-way communication between multiple autonomous entities
 
 ### Examples
 
