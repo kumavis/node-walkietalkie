@@ -1,8 +1,35 @@
-var WalkieTalkie = require('./index.js')
+// Dependencies
+var WTChannel = require('./index.js')
+
+// ------
+console.log(' --- ')
+// ------
+
+var WTChannel = require('./index.js')
+
+var team = WTChannel()
+
+var shaggy = team.WalkieTalkie()
+var scooby = team.WalkieTalkie()
+var daphne = team.WalkieTalkie()
+var fred   = team.WalkieTalkie()
+var velma  = team.WalkieTalkie()
+
+shaggy.on('ruh-oh',function() {
+  console.log('zoinks!')
+})
+
+scooby.emit('ruh-oh')
+
+// ------
+console.log(' --- ')
+// ------
+
+var voxeljs = WTChannel()
 
 console.log('maxogden and harrison in #voxel.js')
-var maxogden = new WalkieTalkie({ channel: 'voxeljs' })
-var harrison = new WalkieTalkie({ channel: 'voxeljs' })
+var maxogden = voxeljs.WalkieTalkie()
+var harrison = voxeljs.WalkieTalkie()
 
 maxogden.on('hello',function() {
   throw 'ERR - maxogden heard himself'
@@ -16,7 +43,7 @@ console.log('maxogden says hello')
 maxogden.emit('hello')
 
 console.log('kumavis joins #voxel.js')
-var kumavis = new WalkieTalkie({ channel: 'voxeljs' })
+var kumavis = voxeljs.WalkieTalkie()
 
 maxogden.on('heyo',function() {
   console.log('maxogden heard heyo')
@@ -38,71 +65,33 @@ console.log(' --- ')
 // ------
 
 console.log( 'a secret society hidden among the masses' )
-var theMasses = []
-var secretSociety = []
+var theMasses = WTChannel()
+var secretSociety = WTChannel()
 
-theMasses.push(new WalkieTalkie({ channel: 'public' }))
-theMasses.push(new WalkieTalkie({ channel: 'public' }))
-theMasses.push(new WalkieTalkie({ channel: 'public' }))
-theMasses.push(new WalkieTalkie({ channel: 'public' }))
-theMasses.push(new WalkieTalkie({ channel: 'public' }))
+theMasses.WalkieTalkie()
+theMasses.WalkieTalkie()
+theMasses.WalkieTalkie()
+theMasses.WalkieTalkie()
+theMasses.WalkieTalkie()
 
-secretSociety.push(new WalkieTalkie({ channel: 'private' }))
-secretSociety.push(new WalkieTalkie({ channel: 'private' }))
+secretSociety.WalkieTalkie()
+secretSociety.WalkieTalkie()
 
-secretSociety.map(function(subscriber) {
+secretSociety.subscribers.map(function(subscriber) {
   subscriber.on('conspiracy',function() {
     console.log('secretSociety member heard the conspiracy')
   })
 })
 
-theMasses.map(function(subscriber) {
+theMasses.subscribers.map(function(subscriber) {
   subscriber.on('conspiracy',function() {
     throw 'ERR - theMasses heard the conspiracy'
   })
 })
 
 console.log( 'the secret society discusses the conspiracy' )
-secretSociety[0].emit('conspiracy')
+secretSociety.subscribers[0].emit('conspiracy')
 
 // ------
 console.log(' --- ')
 // ------
-
-console.log('a channel surfer watches tv, dodging commercials')
-var television = nTimes(6,function(index){ return new WalkieTalkie({ channel: index }) })
-var channelSurfer = new WalkieTalkie()
-
-channelSurfer.on('commercial',function() {
-  var currentChannel = channelSurfer.channels[0]
-  throw 'ERR - surfer saw commercial'
-})
-channelSurfer.on('show',function() {
-  var currentChannel = channelSurfer.channels[0]
-  console.log('surfer saw show on',currentChannel)
-})
-
-channelSurfer.setChannels([0])
-television[0].emit('show')
-channelSurfer.setChannels([1])
-television[1].emit('show')
-channelSurfer.setChannels([2])
-television[2].emit('show')
-channelSurfer.setChannels([3])
-television[3].emit('show')
-
-television[0].emit('commercial')
-television[1].emit('commercial')
-television[2].emit('commercial')
-channelSurfer.removeAllChannels()
-television[3].emit('commercial')
-
-// ------
-
-// utility to run a function n times, and return an array of the returned values
-function nTimes(times,func) {
-  return Array(+times).join('-').split('-').map(function(_,index){
-    return func(index)
-  })
-}
-
