@@ -29,4 +29,4 @@ shaggy.on('ruh-oh',function() {
 scooby.emit('ruh-oh')
 ```
 
-See [tests](https://github.com/kumavis/node-walkietalkie/blob/master/test.js) for more
+See [tests](https://github.com/kumavis/node-walkietalkie/blob/master/test.js) for more examples
