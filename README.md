@@ -11,6 +11,7 @@ each walkie-talkie acts like a [duplex-emitter](https://github.com/pgte/duplex-e
 
 ### Examples
 
+<a class="requirebin-link" target="_blank" href="http://requirebin.com/?gist=7031031"><img src="http://requirebin.com/badge.png"></a>
 ```javascript
 var WTChannel = require('walkietalkie')
 
@@ -28,5 +29,6 @@ shaggy.on('ruh-oh',function() {
 
 scooby.emit('ruh-oh')
 ```
+
 
 See [tests](https://github.com/kumavis/node-walkietalkie/blob/master/test.js) for more examples
