@@ -35,8 +35,17 @@ maxogden.on('hello',function() {
   throw 'ERR - maxogden heard himself'
 })
 
+harrison.on('hey there',function() {
+  throw 'ERR - harrison heard himself'
+})
+
+maxogden.on('hey there',function() {
+  console.log('max ogden heard harrison\'s reply')
+})
+
 harrison.on('hello',function() {
   console.log('harrison heard hello')
+  harrison.emit('hey there')
 })
 
 console.log('maxogden says hello')
