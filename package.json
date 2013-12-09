@@ -13,9 +13,9 @@
     "url": "https://github.com/kumavis/node-walkietalkie.git"
   },
   "dependencies": {
-    "duplex-emitter": "~0.1.9",
-    "extend": "~1.2.1",
-    "through": "~2.3.4",
-    "duplexer": "~0.1.1"
+    "duplex-emitter": "0.1.10",
+    "extend": "1.2.1",
+    "through": "2.3.4",
+    "duplexer": "0.1.1"
   }
 }
