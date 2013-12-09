@@ -104,3 +104,22 @@ secretSociety.subscribers[0].emit('conspiracy')
 // ------
 console.log(' --- ')
 // ------
+
+console.log( 'a stenographer dilligently takes notes on a court case' )
+var courtRoom = WTChannel()
+var defendant = courtRoom.WalkieTalkie()
+var plaintiff = courtRoom.WalkieTalkie()
+var stenographer = courtRoom.WalkieTalkie()
+
+var notes = []
+stenographer.on('*',function(args){
+  var eventName = args[0]
+  console.log('stenographer notes the',eventName)
+  notes.push(eventName) 
+})
+
+plaintiff.emit('evidence')
+defendant.emit('rebuttle')
+plaintiff.emit('rebuttle')
+
+if (notes.length !== 3) throw 'ERR - stenographer is slacking off'
