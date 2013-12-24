@@ -16,6 +16,7 @@
     "duplex-emitter": "0.1.10",
     "extend": "1.2.1",
     "through": "2.3.4",
+    "async": "0.2.9",
     "duplexer": "0.1.1"
   }
 }
