@@ -1,5 +1,7 @@
 # WalkieTalkie
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kumavis/node-walkietalkie.svg)](https://greenkeeper.io/)
+
 ### About
 For managining 2-way communication between multiple autonomous entities
 
