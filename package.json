@@ -13,10 +13,10 @@
     "url": "https://github.com/kumavis/node-walkietalkie.git"
   },
   "dependencies": {
-    "duplex-emitter": "0.1.10",
-    "extend": "1.2.1",
-    "through": "2.3.4",
-    "async": "0.2.9",
+    "duplex-emitter": "2.1.2",
+    "extend": "3.0.1",
+    "through": "2.3.8",
+    "async": "2.5.0",
     "duplexer": "0.1.1"
   }
 }
